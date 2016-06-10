@@ -56,10 +56,16 @@
     </div>
   </div>
 
+
+  
   <div class="chatWindow">
     <p>Chat
+    
       <img class="coins" src="../assets/coins.png">
-      <img class="trophy" src="../assets/trophy.png">
+      
+      <img class="trophy"  ng-click="viewLeaderboard()" src="../assets/trophy.png">
+      
+      
     </p>
     <div class="chatRoom" scroll-glue>
       <p ng-repeat="message in messages">{{message.user}}:  {{message.message}}</p>

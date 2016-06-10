@@ -103,7 +103,11 @@ body {
 .trophy {
   height: 60px;
   width: 60px;
+/*  position: fixed;
+  top: 0; right: 0;
+  bottom: 0; left: 0;*/
 }
+
 
 .timerView {
   font-size: 25px;

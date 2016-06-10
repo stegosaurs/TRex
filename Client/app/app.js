@@ -2,7 +2,10 @@ angular.module("app", [
   "timer",
   "app.auth",
   "app.race",
-  "ngRoute"
+  "app.leaderboard",
+  "ngRoute",
+  "ngMaterial",
+  "ngMessages"
   ])
 
 .config(function($routeProvider){
@@ -16,6 +19,10 @@ angular.module("app", [
       .when('/raceView/:roomId/:userId', {
         templateUrl: '../race/race.html',
         controller: 'raceController'
+      })
+      .when('/leaderboard', {
+        templateUrl: '../leaderboard/leaderboard.html',
+        controller: 'leaderboardController'
       })
       // Default back to /signin page
       .otherwise({
