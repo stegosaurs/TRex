@@ -1,6 +1,6 @@
-angular.module("app.race", ['ngRoute', 'luegg.directives'])
-
-  .controller("raceController", function($scope, $timeout, socket, $routeParams){
+angular.module("app.race", ['ngRoute', 'luegg.directives', 'ngMaterial', 'ngMessages'])
+  
+  .controller("raceController", function($scope, $timeout, socket, $routeParams, $mdDialog, $mdMedia, $location){
       // ********** Initialize Parameters **********
       // The countdownTime is set to 1 because if it is set to 0 then it gives a "falsy" value and will not function properly
       $scope.countdownTime = 1;
@@ -17,6 +17,23 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
 
       // Provides the options for the different racers in the drop down
       $scope.racerChoices=['red', 'blue', 'green'];
+      
+    //   $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+    // $scope.showAlert = function(ev) {
+    // // Appending dialog to document.body to cover sidenav in docs app
+    // // Modal dialogs should fully cover application
+    // // to prevent interaction outside of dialog
+    //   $mdDialog.show(
+    //     $mdDialog.alert()
+    //       .parent(angular.element(document.querySelector('#popupContainer')))
+    //       .clickOutsideToClose(true)
+    //       .title('This is an alert title')
+    //       .textContent('You can specify some description text in here.')
+    //       .ariaLabel('Alert Dialog Demo')
+    //       .ok('Got it!')
+    //       .targetEvent(ev)
+    //   );
+    // };
 
 
       // ********** Server/Socket Interactions **********
@@ -239,6 +256,11 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
 
         // send data to server
         betPlaced(user);
+      };
+      
+      $scope.viewLeaderboard = function () {
+        // click to redirect to leaderboard view
+        $location.path('/leaderboard');
       };
   })
 
