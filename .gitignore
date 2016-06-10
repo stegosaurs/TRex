@@ -30,4 +30,5 @@ dist/
 node_modules/
 bower_components/
 Client/lib/
+data/db/
 
