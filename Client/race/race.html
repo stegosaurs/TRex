@@ -1,6 +1,4 @@
-  <div>
-    <button><img class="coins" src="../assets/coins.png"></button>
-  </div>
+
   
   <div class="header">
 
@@ -59,7 +57,10 @@
   </div>
 
   <div class="chatWindow">
-    <p>Chat</p>
+    <p>Chat
+      <img class="coins" src="../assets/coins.png">
+      <img class="trophy" src="../assets/trophy.png">
+    </p>
     <div class="chatRoom" scroll-glue>
       <p ng-repeat="message in messages">{{message.user}}:  {{message.message}}</p>
     </div>

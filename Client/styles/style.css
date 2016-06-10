@@ -97,6 +97,12 @@ body {
 .coins {
   height: 60px;
   width: 60px;
+  margin-left: 200px;
+}
+
+.trophy {
+  height: 60px;
+  width: 60px;
 }
 
 .timerView {
