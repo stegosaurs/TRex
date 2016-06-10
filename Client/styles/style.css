@@ -94,6 +94,11 @@ body {
   width: 100%;
 }
 
+.coins {
+  height: 60px;
+  width: 60px;
+}
+
 .timerView {
   font-size: 25px;
 }
