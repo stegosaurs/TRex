@@ -1,11 +1,11 @@
 angular.module("app.race", ['ngRoute', 'luegg.directives'])
-  
+
   .controller("raceController", function($scope, $timeout, socket, $routeParams){
       // ********** Initialize Parameters **********
       // The countdownTime is set to 1 because if it is set to 0 then it gives a "falsy" value and will not function properly
       $scope.countdownTime = 1;
       $scope.timerRunning = true;
-      
+
       // The room and username are pulled from the web address
       $scope.room = $routeParams.roomId;
       $scope.username = $routeParams.userId;
@@ -14,7 +14,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
       $scope.connectedUsers = [];
       $scope.racerMoves = {};
       $scope.messages = [];
-      
+
       // Provides the options for the different racers in the drop down
       $scope.racerChoices=['red', 'blue', 'green'];
 
@@ -37,7 +37,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         $scope.countdownTime = data.time;
         $scope.racerMoves = data.racerMoves;
         addOrUpdateUsers(data.users);
-        
+
         // Update timer directive with the time set by the admin
         $scope.$broadcast('timer-set-countdown-seconds', $scope.countdownTime);
         console.log('SUCCESS: ' + msg);
@@ -54,10 +54,10 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         // Let the timer directive know the client is starting
         $scope.$broadcast('timer-start');
         $scope.timerRunning = true;
-        
+
         // Animate background
         $('#raceView').css({'animation':'backgroundScroll 15s linear infinite'});
-        
+
         // Iterate over all the racers the server sent us
         for (var racer in $scope.racerMoves) {
           // Animate movement for each racer
@@ -65,13 +65,13 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         }
         console.log('SUCCESS: ' + msg);
       });
-      
+
       socket.on('updateMessageData', function(messages, msg) {
         $scope.messages = messages;
         console.log('SUCCESS: ' + msg);
       });
-      
-      
+
+
       // ********** Utility Functions **********
       var sendMessage = function(messageData) {
         socket.emit('updateMessages', messageData, function(result, msg) {
@@ -122,7 +122,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
           // check if user is a part of connectedUsers already
           if (!connectedUsers[user]) {
             $scope.connectedUsers.push(users[user]);
-          } else { // else the user exists so update its record 
+          } else { // else the user exists so update its record
             $scope.connectedUsers[connectedUsers[user].index].racerChoice = users[user].racerChoice;
             // .. other properties you may want to update
           }
@@ -147,10 +147,10 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
 
       $scope.startTimer = function (){
         if ($scope.timerSet) {
-          toggleRace({ status: true, room: $scope.room }); 
+          toggleRace({ status: true, room: $scope.room });
         } else {
           window.alert("Timer must be set before race begins")
-        }  
+        }
       };
 
       $scope.stopTimer = function (){
@@ -186,11 +186,11 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
 
         console.log('Countdown complete');
       };
-      
+
       $scope.$on('timer-stopped', function (event, data){
         console.log('Timer Stopped - data = ', data);
       });
-      
+
       // Simple function for our timer directive since it expects the input to be in seconds
       var turnToSeconds = function (seconds, minutes) {
         seconds = seconds || 0;
@@ -198,7 +198,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         return Number(seconds)+Number((minutes*60));
       };
 
-      
+
       // ********** Animation/Front-end Interaction **********
       // Handles animating movement for each racer triggered by admin clicking start timer
       var animateMovement = function(racer, moves) {
@@ -210,7 +210,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
           });
         });
       };
-      
+
       var stopMovement = function() {
         $('.trex').clearQueue().stop();
       };
@@ -226,7 +226,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         sendMessage(userMessage);
         $scope.chatMessage = null;
       };
-      
+
       // 'Choose' button trigger, sets the chosen racer and lets the server know what racer this user selected.
       $scope.chooseRacer = function(racer) {
         var user = {
@@ -247,10 +247,10 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
     // For development testing need to set it to use 'http://' since localhost uses http
     // For production, can use either http or https but the web address will have to match it
     var socket = io.connect('https://' + window.location.hostname + ":" + location.port);
-    
+
     // Error handling can be applied passing in a callback when executing socket methods on or emit
     var on = function (eventName, callback) {
-      socket.on(eventName, function () {  
+      socket.on(eventName, function () {
         var args = arguments;
         $rootScope.$apply(function () {
           callback.apply(socket, args);

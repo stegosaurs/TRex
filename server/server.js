@@ -1,4 +1,5 @@
 var express = require("express");
+var favicon = require("serve-favicon");
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
@@ -15,6 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../Client'));
+app.use(favicon(__dirname + '/../Client/assets/favicon.ico'))
 
 var port = process.env.PORT || 3030;
 
@@ -33,7 +35,7 @@ io.on('connection', function(client){
       // If it doesn't exist on the server, then create a room object for it on the server's gameData object
       gameData[user.room] = {};
     }
-    
+
     // Queries the database to get wins/losses of user if they exist
     userController.getUserStats(user.username, function(userData) {
       // if room user property doesn't exists, create it and add a user to be the admin
@@ -42,18 +44,18 @@ io.on('connection', function(client){
         gameData[user.room].users[user.username] = { admin: true, username: user.username, clientId: client.id, wins: userData.wins, loss: userData.losses, racerChoice: null };
         sendDataToClients(gameData[user.room].users, 'retrieveUserData', gameData[user.room], 'user data loaded for room' + user.room);
         // This callback fires to the user so the message will be displayed on the console
-        
+
         // The third parameter carries whether or not the user is the admin
         callback(true, 'Admin has been added to the room', true);
-      } else if (!gameData[user.room].users[user.username]) { 
+      } else if (!gameData[user.room].users[user.username]) {
         // add the user if it doesn't exist in that room
         gameData[user.room].users[user.username] = { admin: false, username: user.username, clientId: client.id, wins: userData.wins, loss: userData.losses, racerChoice: null };
         sendDataToClients(gameData[user.room].users, 'retrieveUserData', gameData[user.room], 'user data loaded for room' + user.room);
-        
+
         // The third parameter carrying that the user is not an admin
         callback(true, 'User has been added to the room', false);
       } else { // error, user probably exists in that room
-        
+
         callback(false, 'User already exists in this room');
       }
     });
@@ -137,7 +139,7 @@ var sendDataToClients = function(users, eventName, data, msg) {
 };
 
 
-// The racer moves are an array full of incremental moves that should end 
+// The racer moves are an array full of incremental moves that should end
 // with the racer near the end of the alloted space at the end of the alloted time
 var generateRacerMoves = function(time, racers) {
   var moves = {};
