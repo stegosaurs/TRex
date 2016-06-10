@@ -138,12 +138,19 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
 
       // ********** ADMIN User Function **********
       // Only the admin (the user who created the race) should have access to these
+      $scope.timerSet = false;
+
       $scope.setTimer = function (seconds, minutes) {
         setRoomTime({ room: $scope.room, time: turnToSeconds(seconds, minutes) });
+        $scope.timerSet = true;
       };
 
       $scope.startTimer = function (){
-        toggleRace({ status: true, room: $scope.room });
+        if ($scope.timerSet) {
+          toggleRace({ status: true, room: $scope.room }); 
+        } else {
+          window.alert("Timer must be set before race begins")
+        }  
       };
 
       $scope.stopTimer = function (){
