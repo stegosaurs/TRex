@@ -168,3 +168,10 @@ var generateRacerMoves = function(time, racers) {
 
   return { moves:moves, winner:winner };
 };
+
+// get users
+app.get('/leaderboard', function(req, res) {
+    userController.fetchAll(function(restaurants) {
+      res.status(200).json(restaurants);
+    });
+  });

@@ -240,3 +240,52 @@ body {
   from {background-position: 0 0;}
   to {background-position: -250px 0;}
 }
+
+/*   Styling for Leaderboard Page   */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*body {
+  background: #105469;
+  font-family: 'Open Sans', sans-serif;
+}*/
+table {
+  background: #012B39;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 1.15em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  text-align: center;
+  border-bottom: 1px solid #707EB8;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+}
+
+.leaderDino {
+  width: 80px;
+  height: 50px;
+  border: transparent 1px solid; 
+  transform: scaleX(-1);
+}
