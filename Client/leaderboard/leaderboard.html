@@ -3,31 +3,25 @@
 <div ng-controller="leaderboardController">
   <div id="raceView">
 <!--     <div ng-repeat="user in users"> -->
-    <md-content id="start" flex>
-      <div id="container">
-        <div id="content">
-<!--             <td>{{connectedUsers}}</td>
-          </tr>
-          <tr>
-            <td>{{connectedUsers.user}}</td>
-          </tr>
-          <tr>
-            <td>{{connectedUsers[i].username}}</td>
-          </tr> -->
-<!--           <tr>
-            <td>{{user.users}}</td>
-          </tr>
-          <tr>
-            <td>{{user.loss}}</td>
-          </tr> -->
-          <p ng-repeat="users in users">
-            <tr>
-              <td>{{users.username}} (W:{{users.wins}}/L:{{users.losses}})</td>
-            </tr>
-          </p>
-        </div>
-      </div>
-    </md-content>
+    <table>
+      <thead>
+        <tr>
+          <th> 
+          <th>Username
+          <th>Wins
+          <th>Losses
+          <th>Win/Loss %
+      </thead>
+      <tbody>
+        <tr ng-repeat="users in users">
+          <td>
+          <td>{{users.username}}
+          <td>W:{users.wins}}
+          <td>L:{{users.losses}}
+          <td>Win/Loss%
+        <tr>
+      </tbody>
+    </table>
   </div>
   </div>
   <div class="footer"></div>
