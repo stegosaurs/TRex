@@ -7,18 +7,19 @@
       <thead>
         <tr>
           <th ng-click="viewSignin()"> <input type="submit" name="submit" value="Main" class="submitButton"/><!-- <button>BACK TO MAIN</button> -->
-          <th>Username
-          <th>Wins
-          <th>Losses
+          <th><i class="fa fa-trophy" aria-hidden="true"></i> Username
+          <th><i class="fa fa-caret-up" aria-hidden="true"></i> Wins
+          <th><i class="fa fa-caret-down" aria-hidden="true"></i> Losses
           <th>Win/Loss %
       </thead>
       <tbody>
-        <tr ng-repeat="users in users">
+        <tr ng-repeat="users in users | orderBy: '-wins'">
           <td><img class="leaderDino" ng-src="{{randomImg()}}">
           <td>{{users.username}}
           <td>W:{{users.wins}}
           <td>L:{{users.losses}}
-          <td>{{users.wins/users.losses}} <!-- need win/loss % logic -->
+          <!-- displays NaN for users with no completed race entries -->
+          <td>{{users.wins / users.losses * 100}}%
         <tr>
       </tbody>
     </table>
