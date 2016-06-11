@@ -6,7 +6,7 @@
     <table>
       <thead>
         <tr>
-          <th> 
+          <th> <!-- place return to signin here -->
           <th>Username
           <th>Wins
           <th>Losses
@@ -14,11 +14,11 @@
       </thead>
       <tbody>
         <tr ng-repeat="users in users">
-          <td>
+          <td><img src="../assets/trex-winning-b.gif"> <!-- add placing number on dino -->
           <td>{{users.username}}
-          <td>W:{users.wins}}
+          <td>W:{{users.wins}}
           <td>L:{{users.losses}}
-          <td>Win/Loss%
+          <td>Win/Loss% <!-- need win/loss % logic -->
         <tr>
       </tbody>
     </table>

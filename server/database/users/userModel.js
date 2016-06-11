@@ -13,6 +13,10 @@ var UserSchema = mongoose.Schema({
 	losses: {
 	type: Number,
 	default: 0
+	},
+	coins: {
+	type: Number,
+	default: 3
 	}
 });
 
