@@ -241,8 +241,8 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         betPlaced(user);
       };
       
+      // click to redirect to leaderboard view
       $scope.viewLeaderboard = function () {
-        // click to redirect to leaderboard view
         $location.path('/leaderboard');
       };
   })

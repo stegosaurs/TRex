@@ -12,6 +12,11 @@ angular.module('app.leaderboard', ['ngRoute'])
     return $scope.images[num];
   };
   
+  // click to redirect to leaderboard view
+  $scope.viewSignin = function () {
+    $location.path('/signin');
+  };
+  
   // gets all users from db and populates leaderboard using scope.users
   function getAll() {
     $http.get('/leaderboard').then(function(res) {

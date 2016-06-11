@@ -261,15 +261,17 @@ table {
 th {
   border-bottom: 1px solid #364043;
   color: #E2B842;
-  font-size: 0.85em;
+  font-size: 1.15em;
   font-weight: 600;
   padding: 0.5em 1em;
-  text-align: left;
+  text-align: center;
 }
 td {
   color: #fff;
   font-weight: 400;
   padding: 0.65em 1em;
+  text-align: center;
+  border-bottom: 1px solid #707EB8;
 }
 
 tbody tr {
@@ -277,4 +279,11 @@ tbody tr {
 }
 tbody tr:hover {
   background: #014055;
+}
+
+.leaderDino {
+  width: 100px;
+  height: 70px;
+  border: transparent 1px solid; 
+  transform: scaleX(-1);
 }
