@@ -4,8 +4,6 @@ angular.module("app", [
   "app.race",
   "app.leaderboard",
   "ngRoute",
-  "ngMaterial",
-  "ngMessages"
   ])
 
 .config(function($routeProvider){
