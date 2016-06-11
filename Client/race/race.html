@@ -38,19 +38,19 @@
       <div class="bet-red">
         <p>Red</p>
         <div class="bets">
-          <p ng-repeat="user in connectedUsers | filter: 'red'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}})</p>
+          <p ng-repeat="user in connectedUsers | filter: 'red'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}}) <img class="coinBet" src="../assets/coins.png"></p>
         </div>
       </div>
       <div class="bet-blue">
         <p>Blue</p>
         <div class="bets">
-          <p ng-repeat="user in connectedUsers | filter: 'blue'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}})</p>
+          <p ng-repeat="user in connectedUsers | filter: 'blue'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}}) <img class="coinBet" src="../assets/coins.png"></p>
         </div>
       </div>
       <div class="bet-green">
         <p>Green</p>
         <div class="bets">
-          <p ng-repeat="user in connectedUsers | filter: 'green'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}})</p>
+          <p ng-repeat="user in connectedUsers | filter: 'green'">{{user.username}} (W:{{user.wins}}/L:{{user.loss}}) <img class="coinBet" src="../assets/coins.png"></p>
         </div>
       </div>
     </div>
