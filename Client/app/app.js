@@ -3,7 +3,7 @@ angular.module("app", [
   "app.auth",
   "app.race",
   "app.leaderboard",
-  "ngRoute",
+  "ngRoute"
   ])
 
 .config(function($routeProvider){

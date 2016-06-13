@@ -67,6 +67,7 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
       });
 
       socket.on('updateMessageData', function(messages, msg) {
+        
         $scope.messages = messages;
         console.log('SUCCESS: ' + msg);
       });

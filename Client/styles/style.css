@@ -14,8 +14,6 @@ body {
   top: 0;
 }
 
-
-
 /* Sign in page styling */
 
 .container{
@@ -25,7 +23,7 @@ body {
   margin: 0 auto;
   margin-top: 20px;
   border-radius: 20px;
-  width: 400px;
+  width: 500px;
   height: 300px;
   padding-top: 30px;
 }
@@ -106,15 +104,21 @@ body {
   width: 100%;
 }
 
-.coins {
+.coinsL {
   height: 60px;
   width: 60px;
-  margin-left: 200px;
+  transform: scaleX(-1);
+}
+
+.coinsR {
+  height: 60px;
+  width: 60px;
 }
 
 .trophy {
   height: 60px;
   width: 60px;
+  margin-left: 290px;
 /*  position: fixed;
   top: 0; right: 0;
   bottom: 0; left: 0;*/
