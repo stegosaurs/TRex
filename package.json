@@ -16,7 +16,8 @@
     "morgan": "^1.7.0",
     "phantomjs-prebuilt": "^2.1.7",
     "serve-favicon": "^2.3.0",
-    "socket.io": "^1.4.6"
+    "socket.io": "^1.4.6",
+    "stripe": "^4.7.0"
   },
   "main": "server.js",
   "devDependencies": {
