@@ -2,6 +2,7 @@ var express = require("express");
 var favicon = require("serve-favicon");
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var stripe = require('stripe')('sk_test_POErNj4c0RKPiEkBtdBgtAn4');
 
 var app = express();
 
@@ -19,6 +20,25 @@ app.use(express.static(__dirname + '/../Client'));
 app.use(favicon(__dirname + '/../Client/assets/favicon.ico'))
 
 var port = process.env.PORT || 3030;
+
+app.post('/charge', function(req, res){
+  var stripeToken = req.body.stripeToken;
+  var currentCharges = 20;
+  stripe.customers.create({
+    source: stripeToken,
+    description: "TREX APP",
+    email: "email@email.com",
+  }).then(function(customer){
+    return stripe.charges.create({
+      amount: currentCharges,
+      currency: 'usd',
+      customer: customer.id
+    });
+  });
+  res.redirect('/');
+});
+
+
 
 // This gameData object will store the current races and everything on the server (will not persist)
 var gameData = {};
