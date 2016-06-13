@@ -10,7 +10,6 @@
           <th><i class="fa fa-trophy" aria-hidden="true"></i> Username
           <th><i class="fa fa-caret-up" aria-hidden="true"></i> Wins
           <th><i class="fa fa-caret-down" aria-hidden="true"></i> Losses
-          <th>Win/Loss %
       </thead>
       <tbody>
         <tr ng-repeat="users in users | orderBy: '-wins'">
@@ -18,13 +17,11 @@
           <td>{{users.username}}
           <td>W:{{users.wins}}
           <td>L:{{users.losses}}
-          <!-- displays NaN for users with no completed race entries -->
-          <td>{{users.wins / users.losses * 100}}%
         <tr>
       </tbody>
     </table>
     <div class="container">
-      BUY MORE COINS!
+      <img class="coinsL" src="../assets/coins.png">BUY MORE COINS!<img class="coinsR" src="../assets/coins.png">
       <iframe src="https://paymentiframe.com/tag.cgi?u=http://localhost:3030/charge&k=pk_test_cwKirSoNs90p4vPuBR7EOrjA" frameBorder=0 height=230px width=350px></iframe>
     </div>
   </div>
