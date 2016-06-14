@@ -43,5 +43,13 @@ module.exports = {
         }
       });
     }
+  },
+  
+  updateUser: function(username, user, options, callback){
+    var query = {username: username};
+    var update = {
+      coins: user.coins
+    };
+    User.findOneAndUpdate(query, update, options, callback);
   }
 };

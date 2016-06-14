@@ -12,12 +12,6 @@ angular.module('app.leaderboard', ['ngRoute'])
     return $scope.images[num];
   };
   
-  // calculates win percentage for each user
-  // $scope.winPercentage = function(){
-  //   console.log("scope: w, l, users: ", $scope.users.wins, $scope.users.losses)
-  //   return ($scope.users.wins/$scope.users.losses * 100);
-  // };
-  
   // click to redirect to leaderboard view
   $scope.viewSignin = function () {
     $location.path('/signin');

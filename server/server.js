@@ -191,7 +191,18 @@ var generateRacerMoves = function(time, racers) {
 
 // get users
 app.get('/leaderboard', function(req, res) {
-    userController.fetchAll(function(restaurants) {
-      res.status(200).json(restaurants);
-    });
+  userController.fetchAll(function(users) {
+    res.status(200).json(users);
   });
+});
+
+app.put('/coins', function(req, res) {
+  console.log("req.body ", req.body);
+  var user = req.body;
+  userController.updateUser(req.body.username, user, {}, function(err, user){
+    if(err){
+      throw err;
+    }
+    res.json(user);
+  });
+});
