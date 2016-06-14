@@ -1,6 +1,6 @@
 angular.module("app.race", ['ngRoute', 'luegg.directives'])
   
-  .controller("raceController", function($scope, $timeout, socket, $routeParams, $location){
+  .controller("raceController", function($scope, $timeout, socket, $routeParams, $location, $http){
       // ********** Initialize Parameters **********
       // The countdownTime is set to 1 because if it is set to 0 then it gives a "falsy" value and will not function properly
       $scope.countdownTime = 1;
@@ -237,7 +237,13 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
         };
 
         $scope.racerChosen = true;
-
+        var data = ({username: $scope.username, coins: 0});
+        console.log("data: ", data);
+          $http({
+          method: "PUT",
+          data: data,
+          url: '/coins'
+        });
         // send data to server
         betPlaced(user);
       };
@@ -245,6 +251,16 @@ angular.module("app.race", ['ngRoute', 'luegg.directives'])
       // click to redirect to leaderboard view
       $scope.viewLeaderboard = function () {
         $location.path('/leaderboard');
+      };
+      
+      $scope.setCoins = function () {
+        var data = ({username: $scope.username, coins: 3});
+        console.log("data: ", data);
+          $http({
+          method: "PUT",
+          data: data,
+          url: '/coins'
+        });
       };
   })
 

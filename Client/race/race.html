@@ -56,7 +56,6 @@
     </div>
   </div>
 
-
   
   <div class="chatWindow">
     <p>Chat
@@ -77,3 +76,12 @@
     </div>
   </div>
 </div>
+    <div class="container chatRoom2">
+      <img class="coinsL" src="../assets/coins.png">BUY MORE COINS!<img class="coinsR" src="../assets/coins.png">
+      <div>
+      <input class="purchase" type="text" type="submit" placeholder="ex. 10"/>
+      <input ng-model="coins" ng-click="setCoins()" type="submit" name="submit" value="Set"/>
+      </div>
+      <iframe src="https://paymentiframe.com/tag.cgi?u=http://localhost:3030/charge&k=pk_test_cwKirSoNs90p4vPuBR7EOrjA" frameBorder=0 height=230px width=350px></iframe>
+    </div>
+    
