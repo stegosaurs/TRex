@@ -2,6 +2,9 @@
 
 > Wish you could jazz up that timer? Well now you can with The TRex Race Timer. Watch the time pass as the excitement grows. Pick a racer and see who ends up winning!
 
+![alt tag] (https://c3.staticflickr.com/9/8720/28234876466_e224f0b0d7_z.jpg)
+![alt tag] (https://c1.staticflickr.com/8/7737/28165454312_5886fd6063_z.jpg)
+
 ## Team
 
   - __Product Owner__: Zach Hutsell
